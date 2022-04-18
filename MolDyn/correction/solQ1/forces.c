@@ -7,21 +7,19 @@
   void
   forces(int npart, double x[], double f[], double side, double rcoff){
 
-    int   i, j, ip;
+    int   i, j;
     vir    = 0.0;
     epot   = 0.0;
 
-//    for (i=0; i<npart*3; i+=3) {
 #pragma omp parallel for \
     schedule(runtime) \
     default(none) \
-    private(i,j) \
-    shared(npart,x,f,side,rcoff,ip) \
+    private(j) \
+    shared(npart,x,f,side,rcoff) \
     reduction(+:epot) \
     reduction(-:vir)
-    for (ip=0; ip<npart; ip++) {
+    for (i=0; i<npart*3; i+=3) {
 
-	i = ip*3;
 
       // zero force components on particle i 
 

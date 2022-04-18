@@ -16,8 +16,8 @@
 
 #pragma omp for \
     schedule(runtime) \
-    reduction(+:vir) \
-    reduction(-:epot) 
+    reduction(-:vir) \
+    reduction(+:epot) 
     for (i=0; i<npart*3; i+=3) {
 
 
