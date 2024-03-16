@@ -1,7 +1,7 @@
 # Makefile for the molecular dynamics code
 
 include make.def
-
+CC=clang
 #
 # Object files
 #

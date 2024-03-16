@@ -12,7 +12,7 @@
     {
     vir    = 0.0;
     epot   = 0.0;
-    }
+    } // without protection: every thread turns vir and epot 0 (global variables)
 
 #pragma omp for \
     schedule(runtime) \

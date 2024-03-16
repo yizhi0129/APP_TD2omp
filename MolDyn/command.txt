@@ -1,0 +1,6 @@
+export OMP_SCHEDULE=guided
+OMP_THREADS=8 ./md
+
+export OMP_SCHEDULE=static
+
+export OMP_SCHEDULE=dynamic

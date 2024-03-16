@@ -11,7 +11,7 @@
     vir    = 0.0;
     epot   = 0.0;
 
-    for (i=0; i<npart*3; i+=3) {
+    for (i=0; i<npart*3; i+=3) { // x, f in 3D
 
 
       // zero force components on particle i 
@@ -22,7 +22,7 @@
 
       // loop over all particles with index > i 
  
-      for (j=i+3; j<npart*3; j+=3) {
+      for (j=i+3; j<npart*3; j+=3) { // we consider only once the force between 2 particles
 
 	// compute distance between particles i and j allowing for wraparound 
 
@@ -30,7 +30,7 @@
         double yy = x[i+1]-x[j+1];
         double zz = x[i+2]-x[j+2];
 
-        if (xx< (-0.5*side) ) xx += side;
+        if (xx< (-0.5*side) ) xx += side; // side: size of a box
         if (xx> (0.5*side) )  xx -= side;
         if (yy< (-0.5*side) ) yy += side;
         if (yy> (0.5*side) )  yy -= side;
